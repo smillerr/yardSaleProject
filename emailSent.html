@@ -37,6 +37,7 @@
             width: 300px;
             display: grid;
             grid-template-rows: auto 1fr auto;
+            justify-items: center;
         }
         .logo{
             width: 15rem;
@@ -44,41 +45,56 @@
             justify-self: center;
             display: none;
         }
-        .email-icon{
-            
-        }
         .title{
-            justify-self: center;
+            text-align: center;
             margin-bottom: 0;
             font-size: var(--large);
             color: var(--black);
         }
         .subtitle{
-            justify-self: center;
+            text-align: center;
             margin-top: 0.8rem;
             margin-bottom: 3.2rem;
             font-size: var(--medium);
             font-weight: 300;
             color: var(--very-light-pink);
         }
-        .input{
+        .email-icon-container{
+            height: 13.2rem;
+            width: 13.2rem;
             background-color: var(--text-input-field);
-            border: none;
-            border-radius: 0.8rem;
-            height: 3.6rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3.2rem;
+        }
+        .email-icon{
+            width: 8rem;
         }
         .primary-button{
             background-color: var(--hospital-green);
             border: none;
             border-radius: 0.8rem;
             height: 5.6rem;
+            width: 100%;
             font-size:var(--medium);
         }
-        .submit-button{
+        .login-button{
             font-family: 'Quicksand', sans-serif;
             font-weight: bold;
             color:var(--white);
             cursor: pointer;
+        }
+        .resend-email{
+            font-size: var(--small);
+            margin-top: 2.4rem;
+        }
+        .resend-email span{
+            color: var(--very-light-pink);
+        }
+        .resend-email a{
+            color: var(--hospital-green);
         }
         @media (max-width: 640px) {
             .logo{
@@ -95,9 +111,14 @@
             <img src="./Logos/logo_yard_sale.svg" alt="logo" class="logo">
             <h1 class="title"> Email has been sent!</h1>
             <p class="subtitle"> Please check your inbox for instructions on how to reset the password</p>
-            <img src="./Icons/email.svg" alt="logo" class="email-icon">
-            <input type="submit" class="primary-button submit-button" value="login">
-            <p> Didn't receive the email? <a href="/"target="_blank">Resend</a> </p> 
+            <div class="email-icon-container"> 
+                <img src="./Icons/email.svg" alt="logo" class="email-icon"> 
+            </div>
+            <button type="submit" class="primary-button login-button"> Login </button>
+            <p class="resend-email">
+                <span> Didn't receive the email? </span>
+                <a href="/">Resend</a>
+            </p> 
         </div> 
     </div> 
 </body>
