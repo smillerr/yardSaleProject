@@ -28,7 +28,7 @@
         font-family: 'Quicksand', sans-serif;
     }
     .mobile-menu{
-        height: 100vh;
+        height: 600px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -41,7 +41,7 @@
         font-size: var(--medium);
     }
     .categories-list{
-
+        border-bottom: 1px solid var(--very-light-pink);
     }
     .primary-list{
         list-style: none;
@@ -49,15 +49,19 @@
         margin: 0;
     }
     .categories-item{
-        margin-bottom: 2rem;
+        margin-bottom: 3.2rem;
     }
     .other-info-list{
-        border-top: 1px solid var(--very-light-pink);
     }
-    .my-info .primary-list .categories-item a:nth-child(1){
+    .my-info .primary-list .categories-item a{
 
         color: var(--very-light-pink);
+        font-size: var(--small);
+        font-weight: 500;
 
+    }
+    .mobile-menu .my-info .primary-list .categories-item #sign-out{
+        color: var(--hospital-green);
     }
     </style>
 </head>
@@ -101,10 +105,10 @@
         <div class="my-info">
             <ul class="primary-list"> 
                 <li class="categories-item"> 
-                    <a href="/"> Email </a> 
+                    <a href="/"> example@somedomain.com </a> 
                 </li>
                 <li class="categories-item"> 
-                    <a href="/"> Sign out </a> 
+                    <a href="/" id="sign-out"> Sign out </a> 
                 </li>
             </ul>
         </div>    
