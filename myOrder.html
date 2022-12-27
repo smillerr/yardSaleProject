@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title> My order </title>
+    <style>
+        :root{
+            --white: #FFFFFF;
+            --black: #000000;
+            --dark: #232830;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green: #ACD9B2;
+            --small: 1.4rem;
+            --medium: 1.6rem;
+            --large: 1.8rem;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+        }
+        .main-container{
+            height: 100vh;
+            width: 100%;
+            display: grid;
+            place-items: center;
+        }
+        .title{
+            text-align: start;
+            margin-bottom: 3.6rem;
+            font-size: var(--large);
+            font-weight: bold;
+            color: var(--black);
+        }
+        .order-container{
+            width: 400px;
+            padding: 1rem;
+        }
+        .order-info{
+            background-color: var(--text-input-field);
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .order-info p:nth-child(1){
+            display: flex;
+            flex-direction: column;            
+        }
+        .order-info p span:nth-child(1){
+            color: var(--black);
+            font-weight: bold;
+            font-size: var(--medium); 
+            margin-bottom: 0.4rem;     
+        }
+        .order-info p span:nth-child(2){
+            color: var(--very-light-pink);  
+            font-size: var(--small);         
+        }
+        .order-info p:nth-child(2){
+            display: flex;
+            align-items: center; 
+            font-size: var(--small);
+            font-weight: bold;         
+        }
+        .products-container{
+            display: grid;
+            grid-template-rows: repeat(4, 10rem);
+            padding-right: 1.2rem;
+        }
+        .product-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-item p{
+            color: var(--black);
+            font-size: var(--small);
+            font-weight: bold;
+        }
+        .product-info{
+            display: flex;
+            align-items: center;
+        }
+        .product-info figure{
+            margin: 0;
+        }
+        .product-info figure img{ 
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 2rem;
+        }
+        .product-info p{
+            margin-left: 1.6rem;
+            color: var(--very-light-pink);
+            font-size: var(--small);
+            font-weight: 500;
+        }
+    </style>
+</head>
+    <body>
+        <section class="main-container"> 
+            <div class="order-container">
+                <h1 class="title"> My order </h1>
+                <div class="order-info"> 
+                    <p> 
+                        <span> 20/12/2022 </span>
+                        <span> 6 articles </span>
+                    </p>
+                    <p> $480.00 </p>
+                </div>
+                <div class="products-container">
+                    <div class="product-item">
+                        <div class="product-info">
+                            <figure> 
+                                <img src="./Icons/bouquet.jpeg" alt="">
+                            </figure>
+                            <p> Bouquet </p>
+                        </div>
+                        <p> $120.00 </p>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-info">
+                            <figure> 
+                                <img src="./Icons/sunflower.jpeg" alt="">
+                            </figure>
+                            <p> Sunflowers </p>
+                        </div>
+                        <p> $120.00 </p>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-info">
+                            <figure> 
+                                <img src="./Icons/bouquet.jpeg" alt="">
+                            </figure>
+                            <p> Bouquet </p>
+                        </div>
+                        <p> $120.00 </p>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-info">
+                            <figure> 
+                                <img src="./Icons/sunflower.jpeg" alt="">
+                            </figure>
+                            <p> Sunflowers </p>
+                        </div>
+                        <p> $120.00 </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
