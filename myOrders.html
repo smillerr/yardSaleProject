@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title> My orders </title>
+    <style>
+        :root{
+            --white: #FFFFFF;
+            --black: #000000;
+            --dark: #232830;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green: #ACD9B2;
+            --small: 1.4rem;
+            --medium: 1.6rem;
+            --large: 1.8rem;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+        }
+        .main-container{
+            height: 100vh;
+            width: 100%;
+            display: grid;
+            place-items: center;
+        }
+        .title{
+            text-align: start;
+            margin-bottom: 3.6rem;
+            font-size: var(--large);
+            font-weight: bolder;
+            color: var(--black);
+        }
+        .order-container{
+            width: 400px;
+            padding: 1rem;
+        }
+        .order-info{
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .order-info div {
+            display: flex;
+            align-items: center;
+        }
+        .order-info div figure{ 
+            margin: 0;
+            height: 10px;
+            width: 10px;
+            margin-left: 1.6rem;
+        }
+        .order-info div p {
+            color: var(--black);
+            font-size: var(--small);
+            font-weight: bold;
+        }
+        .order-info div figure img{ 
+            height: inherit;
+            width: inherit;
+        }
+        .order-info p:nth-child(1){
+            display: flex;
+            flex-direction: column;            
+        }
+        .order-info p span:nth-child(1){
+            color: var(--black);
+            font-weight: bold;
+            font-size: var(--medium); 
+            margin-bottom: 0.4rem;     
+        }
+        .order-info p span:nth-child(2){
+            color: var(--very-light-pink);  
+            font-size: var(--small);         
+        }
+        .order-info p:nth-child(2){
+            display: flex;
+            align-items: center; 
+            font-size: var(--small);
+            font-weight: bold;         
+        }
+        .products-container{
+            display: grid;
+            grid-template-rows: repeat(5, 7.2rem);
+        }
+    </style>
+</head>
+    <body>
+        <section class="main-container"> 
+            <div class="order-container">
+                <h1 class="title"> My orders </h1>
+                <div class="products-container">
+                    <div class="order-item">
+                        <div class="order-info"> 
+                            <p> 
+                                <span> 20/12/2022 </span>
+                                <span> 6 articles </span>
+                            </p>
+                            <div>
+                                <p> $ 480.00 </p>
+                                <figure> 
+                                    <img src="./Icons/flechita.svg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-info"> 
+                            <p> 
+                                <span> 06/10/2022 </span>
+                                <span> 5 articles </span>
+                            </p>
+                            <div>
+                                <p> $ 300.00 </p>
+                                <figure> 
+                                    <img src="./Icons/flechita.svg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-info"> 
+                            <p> 
+                                <span> 09/09/2022 </span>
+                                <span> 1 article </span>
+                            </p>
+                            <div>
+                                <p> $ 700.00 </p>
+                                <figure> 
+                                    <img src="./Icons/flechita.svg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-info"> 
+                            <p> 
+                                <span> 05/07/2022 </span>
+                                <span> 8 articles </span>
+                            </p>
+                            <div>
+                                <p> $ 620.00 </p>
+                                <figure> 
+                                    <img src="./Icons/flechita.svg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-info"> 
+                            <p> 
+                                <span> 17/06/2022 </span>
+                                <span> 2 articles </span>
+                            </p>
+                            <div>
+                                <p> $ 125.00 </p>
+                                <figure> 
+                                    <img src="./Icons/flechita.svg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
