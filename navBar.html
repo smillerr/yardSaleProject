@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Nav Bar</title>
+    <style> 
+        :root{
+        --white: #FFFFFF;
+        --black: #000000;
+        --dark: #232830;
+        --very-light-pink: #C7C7C7;
+        --text-input-field: #F7F7F7;
+        --hospital-green: #ACD9B2;
+        --small: 1.4rem;
+        --medium: 1.6rem;
+        --large: 1.8rem;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+        }
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            border-bottom: 1px solid var(--text-input-field);
+        }
+        .navbar-left {
+            display: flex;
+        }
+        .navbar-left div {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-left ul{
+            margin-left: 3rem;
+        }
+        .navbar-left ul, .navbar-right ul{
+            text-decoration: none;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-left img{
+            width: 10rem;
+        }
+        .menu {
+            display: none;
+        }
+         .navbar-left ul li a, .navbar-right ul li a{
+            text-decoration: none;
+            color: var(--very-light-pink);
+            border: 1px solid var(--white);
+            padding: 0.6rem;
+            border-radius: 0.8rem;
+        }
+        .navbar-left ul li a:hover, 
+        .navbar-right ul li a:hover{
+            text-decoration: none;
+            color: var(--hospital-green);
+            border: 1px solid var(--hospital-green);
+            border-radius: 0.8rem;
+        }
+        .navbar-right{
+            display: flex;
+            align-items: center;
+        }
+        .nav-bar-email{
+            color: var(--very-light-pink);
+            font-size: 1rem;
+        }
+        .nav-bar-cart{
+            margin-left: 1.6rem;
+        }
+        @media (max-width: 640px){
+            .menu{
+                display: block;
+            }
+            .navbar-left ul{
+                display: none;
+            }
+            .nav-bar-email{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav> 
+        <img class="menu" src="/Icons/icon_menu.svg" alt="Menu">
+        <div class="navbar-left"> 
+            <div>
+                <img src="/Logos/logo_yard_sale.svg" alt="Yard sale logo">
+            </div>
+            <ul> 
+                <li> 
+                    <a href="/"> All </a>
+                </li>
+                <li> 
+                    <a href="/"> Clothes </a>
+                </li>
+                <li> 
+                    <a href="/"> Electronics </a>
+                </li>
+                <li> 
+                    <a href="/"> Furniture </a>
+                </li>
+                <li> 
+                    <a href="/"> Toys </a>
+                </li>
+                <li> 
+                    <a href="/"> Others </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="nav-bar-email"> someUser@example.com </li>
+                <li class="nav-bar-cart"> 
+                    <img src="/Icons/icon_shopping_cart_notification.svg" alt="Cart notification">
+                </li> 
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
