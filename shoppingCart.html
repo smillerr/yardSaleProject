@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My shopping cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style> 
+        :root{
+        --white: #FFFFFF;
+        --black: #000000;
+        --dark: #232830;
+        --very-light-pink: #C7C7C7;
+        --text-input-field: #F7F7F7;
+        --hospital-green: #ACD9B2;
+        --small: 1.4rem;
+        --medium: 1.6rem;
+        --large: 1.8rem;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+        }
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .main-container{
+            width: 400px;
+            height: 100vh;
+        }
+        .nav-bar-shopping-cart{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            width: inherit;
+            padding: 1rem;
+        }
+        .nav-bar-shopping-cart p{
+            color: var(--black);
+            font-size: var(--large);
+            font-weight: bold;
+        }
+        .primary-button{
+            background-color: var(--hospital-green);
+            border: none;
+            border-radius: 0.8rem;
+            width: 100%;
+            height: 5.6rem;
+            color: var(--white);
+            cursor: pointer;
+            font-size:var(--medium);
+            font-weight: bold;
+        }
+        .shopping-cart-container{
+            width: 400px;
+            padding: 1rem;
+        }
+        .shopping-cart-info{
+            background-color: var(--text-input-field);
+            border-radius: 1.2rem;
+            padding: 2.8rem;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.6rem;
+        }
+        .shopping-cart-info p:nth-child(1){
+            font-size: var(--small);
+            font-weight: bold;            
+        }
+        .shopping-cart-info p:nth-child(2){
+            display: flex;
+            align-items: center; 
+            font-size: var(--small);
+            font-weight: bold;         
+        }
+        .shopping-cart-products-container{
+            display: grid;
+            grid-template-rows: repeat(4, 10rem);
+            margin-bottom: 2rem;
+        }
+        .product-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-item p{
+            color: var(--black);
+            font-size: var(--small);
+            font-weight: bold;
+        }
+        .product-info{
+            display: flex;
+            align-items: center;
+        }
+        .product-info figure{
+            margin: 0;
+        }
+        .product-info figure img{ 
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 2rem;
+        }
+        .product-info p{
+            margin-left: 1.6rem;
+            color: var(--very-light-pink);
+            font-size: var(--small);
+            font-weight: 500;
+        }
+        .product-cancelled{
+            display: flex;
+            align-items: center;
+        }
+        .product-cancelled p{
+            display: flex;
+            align-items: center;
+        }
+        .product-cancelled figure{
+            height: 14px;
+            width: 14px;
+            margin-left: 2rem;
+        }
+        @media (max-width: 640px){
+            .main-container, .shopping-cart-container{
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="main-container"> 
+        <nav class="nav-bar-shopping-cart"> 
+            <img src="./Icons/icon_menu.svg" alt="Menu">
+            <div>
+                <p> Shopping Cart </p>
+            </div>
+        </nav>
+        <div class="shopping-cart-container">
+            <div class="shopping-cart-products-container"> 
+                <div class="product-item">
+                    <div class="product-info">
+                        <figure> 
+                            <img src="./Icons/bouquet.jpeg" alt="">
+                        </figure>
+                        <p> Bouquet </p>
+                    </div>
+                    <div class="product-cancelled"> 
+                        <p> $120.00 </p>
+                        <figure> 
+                            <img src="./Icons/icon_close.png" alt="Dismiss">
+                        </figure>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-info">
+                        <figure> 
+                            <img src="./Icons/bouquet.jpeg" alt="">
+                        </figure>
+                        <p> Bouquet </p>
+                    </div>
+                    <div class="product-cancelled"> 
+                        <p> $120.00 </p>
+                        <figure> 
+                            <img src="./Icons/icon_close.png" alt="Dismiss">
+                        </figure>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-info">
+                        <figure> 
+                            <img src="./Icons/bouquet.jpeg" alt="">
+                        </figure>
+                        <p> Bouquet </p>
+                    </div>
+                    <div class="product-cancelled"> 
+                        <p> $120.00 </p>
+                        <figure> 
+                            <img src="./Icons/icon_close.png" alt="Dismiss">
+                        </figure>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-info">
+                        <figure> 
+                            <img src="./Icons/bouquet.jpeg" alt="">
+                        </figure>
+                        <p> Bouquet </p>
+                    </div>
+                    <div class="product-cancelled"> 
+                        <p> $120.00 </p>
+                        <figure> 
+                            <img src="./Icons/icon_close.png" alt="Dismiss">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="shopping-cart-info"> 
+                <p> 
+                    Total
+                </p>
+                <p> $480.00 </p>
+            </div>
+            <button class="primary-button"> Checkout </button>
+        </div>
+    </aside>
+</body>
+</html>
