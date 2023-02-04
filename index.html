@@ -7,8 +7,106 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link href="./styles.css" rel="stylesheet">
+    <title> Yard Sale </title>
 </head>
 <body>
+    <nav> 
+        <img class="menu" src="/Icons/icon_menu.svg" alt="Menu">
+        <div class="navbar-left"> 
+            <div>
+                <img src="/Logos/logo_yard_sale.svg" alt="Yard sale logo">
+            </div>
+            <ul> 
+                <li> 
+                    <a href="/"> All </a>
+                </li>
+                <li> 
+                    <a href="/"> Clothes </a>
+                </li>
+                <li> 
+                    <a href="/"> Electronics </a>
+                </li>
+                <li> 
+                    <a href="/"> Furniture </a>
+                </li>
+                <li> 
+                    <a href="/"> Toys </a>
+                </li>
+                <li> 
+                    <a href="/"> Others </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="nav-bar-email"> someUser@example.com </li>
+                <li class="nav-bar-cart"> 
+                    <img src="/Icons/icon_shopping_cart_notification.svg" alt="Cart notification">
+                </li> 
+            </ul>
+        </div>
+        <div class="desktop-menu inactive">
+            <ul>
+                <li>
+                    <a href="/" class="title">My orders</a>
+                </li>
+                <li>
+                    <a href="/">My account</a>
+                </li>
+                <li>
+                    <a href="/">Sign out</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-menu inactive"> 
+            <div class="categories-list">
+                <ul class="primary-list"> 
+                    <li class="categories-item"> 
+                        <a href="/"> CATEGORIES </a> 
+                    </li>
+                    <li class="categories-item"> 
+                        <a href="/"> All </a> 
+                    </li>
+                    <li class="categories-item"> 
+                        <a href="/"> Clothes </a> 
+                    </li>
+                    <li class="categories-item"> 
+                        <a href="/"> Electronics </a> 
+                    </li>
+                    <li class="categories-item"> 
+                        <a href="/"> Furnitures </a> 
+                    </li>
+                    <li class="categories-item"> 
+                        <a href="/"> Toys </a> 
+                    </li>
+                    <li class="categories-item"> 
+                        <a href="/"> Others </a> 
+                    </li>
+                </ul>
+            </div>
+            <div class="other-info-list">
+                <ul class="primary-list" > 
+                    <li class="categories-item"> 
+                        <a href="/"> My orders </a> 
+                    </li>
+                    <li class="categories-item"> 
+                        <a href="/"> My account </a> 
+                    </li>
+                </ul>
+            </div>
+            <div class="my-info">
+                <ul class="primary-list"> 
+                    <li class="categories-item"> 
+                        <a href="/"> example@somedomain.com </a> 
+                    </li>
+                    <li class="categories-item"> 
+                        <a href="/" id="sign-out"> Sign out </a> 
+                    </li>
+                </ul>
+            </div>    
+        </div>
+    </nav>
+<script src="main.js"></script>
 </body>
 </html>
