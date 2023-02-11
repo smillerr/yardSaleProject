@@ -145,6 +145,7 @@ body{
     color: var(--black);
     font-weight: bold;
     font-size: var(--small);
+    cursor: pointer;
 }
 .categories-list{
     height: 50%;
