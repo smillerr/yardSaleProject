@@ -248,6 +248,8 @@ body{
     display: grid;
     grid-template-rows: repeat(4, 7rem);
     margin-bottom: 2rem;
+    height: 280px;
+    overflow-y: scroll;
 }
 .product-item{
     display: flex;

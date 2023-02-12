@@ -35,12 +35,25 @@ const productDetailDescription = document.getElementById('product-detail-descrip
 //Detail of every product with its selector that triggers it
 const productDetailContainer = document.querySelector('.product-detail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
+//Button that adds a product to the shopping cart
+const addToShoppingCartButton = document.querySelector('.add-to-cart-button');
+//Shopping cart products container
+const shoppingCartProductsContainer = document.querySelector('.shopping-cart-products-container');
+//Shopping cart delete product icon
+const deleteProduct = document.getElementsByClassName('remove-from-shopping-cart');
+//Shopping cart product price 
+const shoppingCartProductPrice = document.getElementsByClassName('shopping-cart-product-price');
+//Shopping cart total price 
+const shoppingCartTotalValue = document.querySelector('#total-value');
+//Checkout button 
+const checkoutButton = document.querySelector('.checkout-button');
+
+
 //Event listeners for the menus, shopping cart and the detail of a product
 showMenu.addEventListener('click', function(){toggleElement(desktopMenu)});
 burguerIcon.addEventListener('click', function(){toggleElement(mobileMenu)});
 shoppingCartIcon.addEventListener('click', function(){toggleElement(shoppingCart)});
 productDetailCloseIcon.addEventListener('click' , closeProductDetail);
-
 /*Filtering the products on desktop and mobile
 
 Since our filter buttons are on different navbars, the forEach() function is the responsible of doing it both for mobile and desktop, the same button is being used but since the navbar changes they both have the same class
@@ -53,7 +66,6 @@ showOnlyElectronics.forEach((element=>element.addEventListener('click' , functio
 showOnlyFurniture.forEach((element=>element.addEventListener('click' , function(){showWhichProducts(furnitureItems)})));
 showOnlyToys.forEach((element=>element.addEventListener('click' , function(){showWhichProducts(toysItems)})));
 showOthers.forEach((element=>element.addEventListener('click' , function(){showWhichProducts(othersItems)})));
-
 //Function to show or hide the chosen element
 function toggleElement(element){
     element.classList.toggle('inactive');
@@ -136,12 +148,18 @@ function renderProducts(productList){
         const productName = document.createElement('p');
         productName.innerText = product.name;
         const productPrice = document.createElement('p');
-        productPrice.innerText = `$${product.price},00`;
+        productPrice.innerText = `$${product.price}.00`;
 
         const productFigure = document.createElement('figure');
         const productImgCart= document.createElement('img');
         productImgCart.setAttribute('src', './Icons/bt_add_to_cart.svg');
+        productImgCart.addEventListener('click' , function(){addedToCart(parameter)});
+        productImgCart.addEventListener('click' , changingImgCart);
 
+        function changingImgCart(){
+            productImgCart.setAttribute('src' , './Icons/bt_added_to_cart.svg');
+        }
+        
         productFigure.append(productImgCart);
         productDescriptionDiv.append(productName , productPrice);
         productDescription.append(productDescriptionDiv,productFigure);
@@ -273,15 +291,77 @@ function openProductDetail(product){
     mobileMenu.classList.add('inactive');
 
     //Now let's customize each product detail so it matches the one we are clicking 
-    console.log(product.image);
     productDetailImg.setAttribute('src' , product.image );
-    productDetailPrice.innerText = `$${product.price},00`;
+    productDetailPrice.innerText = `$${product.price}.00`;
     productDetailName.innerText = product.name;
     productDetailDescription.innerText = 'The description of this product will be avaliable soon';
+    addToShoppingCartButton.addEventListener('click' , function(){avaliableSoon('')});
+    
     
 }
 function closeProductDetail(){
     productDetailContainer.classList.add('inactive');
-    
 }
 
+function addedToCart(product){
+    //Creating the product item that will be in the shopping cart
+    const productItem = document.createElement('div');
+    productItem.classList.add('product-item');
+
+    //Creating the product info, which contains, the name and the image of the product
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+    const productFigure = document.createElement('figure');
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src' , product.image);
+    const productName = document.createElement('p');
+    productName.innerText = product.name;
+
+    //Creating the product Cancelled, which contains, the remove from the cart button and the price
+    const productCancelled = document.createElement('div');
+    productCancelled.classList.add('product-cancelled');
+    const productPrice = document.createElement('p');
+    productPrice.classList.add('shopping-cart-product-price');
+    productPrice.innerText = `$${product.price}.00`;
+    const removeProductFigure = document.createElement('figure');
+    removeProductFigure.classList.add('remove-from-shopping-cart');
+    const removeProdutImg = document.createElement('img');
+    removeProdutImg.setAttribute('src' , './Icons/icon_close.png');
+
+    
+    //Appending the created elements into the shopping cart products container 
+    //First, the image of the product, and the name into the product info div
+    productFigure.append(productImg);
+    productInfo.append(productFigure , productName);
+    //Then, the close icon and the price into the product cancelled div
+    removeProductFigure.append(removeProdutImg);
+    productCancelled.append(productPrice , removeProductFigure);
+    //Now, the product info div and the product cancelled div into the product item
+    productItem.append(productInfo , productCancelled);
+    //Last, the product item, into the shopping cart products container
+    shoppingCartProductsContainer.append(productItem);
+    alert('The product has been added to the shopping cart');
+    theTotalValueIs(shoppingCartProductPrice);
+    function removeProduct(){
+        alert('This feature will be avaliable soon');
+    }
+    function theTotalValueIs(shoppingCartPrices){
+        //The parameter is a HTML collection
+        let totalValue=0;
+        for (price of shoppingCartPrices){
+            let currentPrice = price.innerText.charAt(1)+price.innerText.charAt(2)+price.innerText.charAt(3)+price.innerText.charAt(4);
+            totalValue=Number(currentPrice)+totalValue; 
+        }
+        shoppingCartTotalValue.innerText = `$${totalValue}.00`;
+    }
+    removeProductFigure.addEventListener('click' , removeProduct);
+}
+function avaliableSoon(element){
+    if(element === ""){
+        alert('This feature will be avaliable soon, in the meantime you can add your products to the shopping cart through the round button ');
+    }
+    else{
+        alert('This feature will be avaliable soon');
+    }
+}
+checkoutButton.addEventListener('click' , function(){avaliableSoon('checkout process')});
