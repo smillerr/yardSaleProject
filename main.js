@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burguerIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 //Shopping cart with its selector that triggers it
-const shoppingCartIcon = document.querySelector('.nav-bar-cart');
+const shoppingCartIcon = document.querySelector('#nav-bar-cart-icon');
 const shoppingCart = document.querySelector('.my-shopping-cart');
 //Catalog of products
 const catalogContainer = document.querySelector('.catalog-container');
@@ -45,9 +45,10 @@ const deleteProduct = document.getElementsByClassName('remove-from-shopping-cart
 const shoppingCartProductPrice = document.getElementsByClassName('shopping-cart-product-price');
 //Shopping cart total price 
 const shoppingCartTotalValue = document.querySelector('#total-value');
+//Shopping cart info
+const shoppingCartInfo = document.getElementById('shopping-cart-info-description');
 //Checkout button 
 const checkoutButton = document.querySelector('.checkout-button');
-
 
 //Event listeners for the menus, shopping cart and the detail of a product
 showMenu.addEventListener('click', function(){toggleElement(desktopMenu)});
@@ -154,6 +155,7 @@ function renderProducts(productList){
         const productImgCart= document.createElement('img');
         productImgCart.setAttribute('src', './Icons/bt_add_to_cart.svg');
         productImgCart.addEventListener('click' , function(){addedToCart(parameter)});
+        productImgCart.style.cursor = 'pointer';
         productImgCart.addEventListener('click' , changingImgCart);
 
         function changingImgCart(){
@@ -170,7 +172,6 @@ function renderProducts(productList){
         productCard.classList.add(product.category);
     }
 }
-
 //Its parameter is an document.getElementsByClassName, in other words a HTML collection
 function showWhichProducts(elementsWithCategory){
     //Every time we filter a new product, if a product detail is being displayed, we close it
@@ -295,15 +296,32 @@ function openProductDetail(product){
     productDetailPrice.innerText = `$${product.price}.00`;
     productDetailName.innerText = product.name;
     productDetailDescription.innerText = 'The description of this product will be avaliable soon';
-    addToShoppingCartButton.addEventListener('click' , function(){avaliableSoon('')});
     
-    
+
+    productsOpened.push(product); 
+    lastProductOpened();
 }
+
+let productsOpened = [];
+let productToAddToCart; 
+
+function lastProductOpened(){
+    let lenght = productsOpened.length;;
+    let lastProduct = productsOpened[lenght-1];
+    productToAddToCart = lastProduct;
+}
+
+addToShoppingCartButton.addEventListener('click' , function(){addedToCart(productToAddToCart)});
+
 function closeProductDetail(){
     productDetailContainer.classList.add('inactive');
 }
 
 function addedToCart(product){
+    //We change the shopping cart icon so now it has a little green notification every time the user adds a product to the shopping cart
+    shoppingCartIcon.setAttribute('src' , './Icons/icon_shopping_cart_notification.svg');
+    //We also change the image on the button 'add to cart' so now it says, 'added to cart'
+    addedToCartButton();
     //Creating the product item that will be in the shopping cart
     const productItem = document.createElement('div');
     productItem.classList.add('product-item');
@@ -340,28 +358,46 @@ function addedToCart(product){
     productItem.append(productInfo , productCancelled);
     //Last, the product item, into the shopping cart products container
     shoppingCartProductsContainer.append(productItem);
+    shoppingCartInfo.innerText = 'Total';
     alert('The product has been added to the shopping cart');
-    theTotalValueIs(shoppingCartProductPrice);
+
+    const shoppingCartProducts = document.getElementsByClassName('product-item');
+
     function removeProduct(){
-        alert('This feature will be avaliable soon');
+        productItem.classList.add('inactive');
+        if(productItem.classList.contains('inactive')){
+            productItem.style.display = 'none';
+        }
+        theTotalValueIs(shoppingCartProducts);
+        alert('The product has been deleted from the shopping cart succesfully');
+        
     }
-    function theTotalValueIs(shoppingCartPrices){
+    theTotalValueIs(shoppingCartProducts);
+    function theTotalValueIs(array){
+        removeProductFigure.addEventListener('click' , removeProduct);
         //The parameter is a HTML collection
         let totalValue=0;
-        for (price of shoppingCartPrices){
-            let currentPrice = price.innerText.charAt(1)+price.innerText.charAt(2)+price.innerText.charAt(3)+price.innerText.charAt(4);
-            totalValue=Number(currentPrice)+totalValue; 
+        for (let i=0; i<array.length; i++){
+            let currentPriceText = array[i].lastChild.innerText;
+            let currentPriceValue = Number(currentPriceText.charAt(1)+currentPriceText.charAt(2)+currentPriceText.charAt(3)+currentPriceText.charAt(4));
+            let wasItDeleted = array[i].classList.contains('inactive');
+            if(wasItDeleted===false){
+                totalValue=currentPriceValue+totalValue; 
+            }
         }
         shoppingCartTotalValue.innerText = `$${totalValue}.00`;
-    }
-    removeProductFigure.addEventListener('click' , removeProduct);
-}
-function avaliableSoon(element){
-    if(element === ""){
-        alert('This feature will be avaliable soon, in the meantime you can add your products to the shopping cart through the round button ');
-    }
-    else{
-        alert('This feature will be avaliable soon');
+        if(totalValue==0){
+            shoppingCartInfo.innerText = 'Your car is empty';
+        }
     }
 }
-checkoutButton.addEventListener('click' , function(){avaliableSoon('checkout process')});
+function addedToCartButton(){
+    addToShoppingCartButton.innerText = 'Added to cart!';
+    addToShoppingCartButton.classList.remove('primary-button');
+    addToShoppingCartButton.classList.add('secondary-button');
+}
+function avaliableSoon(){
+    alert('This feature will be avaliable soon');
+}
+
+checkoutButton.addEventListener('click' , avaliableSoon);
