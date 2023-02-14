@@ -321,7 +321,7 @@ function addedToCart(product){
     //We change the shopping cart icon so now it has a little green notification every time the user adds a product to the shopping cart
     shoppingCartIcon.setAttribute('src' , './Icons/icon_shopping_cart_notification.svg');
     //We also change the image on the button 'add to cart' so now it says, 'added to cart'
-    addedToCartButton();
+    //addedToCartButton();
     //Creating the product item that will be in the shopping cart
     const productItem = document.createElement('div');
     productItem.classList.add('product-item');
